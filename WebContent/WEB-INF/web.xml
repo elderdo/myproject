@@ -13,16 +13,16 @@
   </context-param>
   <context-param>
     <param-name>webAppRootKey</param-name>
-    <param-value>prime</param-value>
+    <param-value>delder</param-value>
   </context-param>
   <context-param>
     <param-name>contextConfigLocation</param-name>
     <param-value>
-   		/WEB-INF/prime-security.xml
+   		/WEB-INF/delder-security.xml
 		  /WEB-INF/applicationContext.xml
-		  /WEB-INF/prime-config.xml 
-		  /WEB-INF/prime-batch.xml
-		  /WEB-INF/prime-quartz.xml
+		  /WEB-INF/delder-config.xml 
+		  /WEB-INF/delder-batch.xml
+		  /WEB-INF/delder-quartz.xml
   	</param-value>
   </context-param>
   <filter>
@@ -40,12 +40,12 @@
     <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
   </listener>
   <servlet>
-    <servlet-name>prime</servlet-name>
+    <servlet-name>delder</servlet-name>
     <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
     <load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>
-    <servlet-name>prime</servlet-name>
+    <servlet-name>delder</servlet-name>
     <url-pattern>/</url-pattern>
   </servlet-mapping>
   <filter>

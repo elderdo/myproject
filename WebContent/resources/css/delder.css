@@ -244,7 +244,7 @@ div.dataTables_scroll {
 
 #footer {
 	border-top: 1px solid #999;
-	background: url(../images/boeingLogoBlack.gif) no-repeat top left;
+	background: url(../images/delderLogoBlack.gif) no-repeat top left;
 	height: 55px;
 	font-size: 85%;
 }
@@ -542,7 +542,7 @@ table.partsDetailTable {
 	padding: 5px 5px 5px 5px;
 }
 
-.primeTableBorder90 {
+.delderTableBorder90 {
 	width: 90%;
 	border-style: solid;
 	border-width: 1px;
@@ -551,12 +551,12 @@ table.partsDetailTable {
 	BORDER-COLLAPSE: separate;
 }
 
-.primeTableBorder90 td {
+.delderTableBorder90 td {
 	white-space: nowrap;
 	padding: 5px 5px 5px 5px;
 }
 
-.primeTableBorder50 {
+.delderTableBorder50 {
 	width: 50%;
 	border-style: solid;
 	border-width: 1px;
@@ -565,7 +565,7 @@ table.partsDetailTable {
 	BORDER-COLLAPSE: separate;
 }
 
-.primeTableBorder50 td {
+.delderTableBorder50 td {
 	white-space: nowrap;
 	padding: 5px 5px 5px 5px;
 }
@@ -1448,7 +1448,7 @@ a.selectedHover {
 	width: auto;
 }
 
-#primePageContent {
+#delderPageContent {
 	padding: 10px 0px 0px 10px;
 	margin: 0px 0px 0px 0px;
 /*   text-align: left; */

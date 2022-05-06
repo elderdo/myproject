@@ -7,7 +7,7 @@
 <tiles-definitions>
 
 	<definition name="mainLayout"
-		template="/WEB-INF/jsp/layout/primeLayout.jsp">
+		template="/WEB-INF/jsp/layout/delderLayout.jsp">
 		<put-attribute name="title" value="PRIME" />
 		<put-attribute name="heading" value="PRIME" />
 		<put-attribute name="navigation"
@@ -21,7 +21,7 @@
 	</definition>
 
 	<definition name="ajaxLayout"
-		template="/WEB-INF/jsp/layout/primeAjaxLayout.jsp">
+		template="/WEB-INF/jsp/layout/delderAjaxLayout.jsp">
 		<put-attribute name="body"
 			value="/WEB-INF/jsp/layout/body.jsp" />
 	</definition>

@@ -1,4 +1,4 @@
-<Context docBase="${catalina.home}/webapps/prime"
+<Context docBase="${catalina.home}/webapps/delder"
          privileged="true" 
        >
 		<ResourceLink

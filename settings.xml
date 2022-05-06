@@ -23,13 +23,13 @@
           </snapshots>
           <id>central</id>
           <name>Maven-Releases</name>
-          <url>https://sres.web.boeing.com/artifactory/Maven-Releases</url>
+          <url>https://sres.web.delder.com/artifactory/Maven-Releases</url>
         </repository>
         <repository>
           <snapshots />
           <id>snapshots</id>
           <name>Maven-Snapshots</name>
-          <url>https://sres.web.boeing.com/artifactory/Maven-Snapshots</url>
+          <url>https://sres.web.delder.com/artifactory/Maven-Snapshots</url>
         </repository>
       </repositories>
       <pluginRepositories>
@@ -39,13 +39,13 @@
           </snapshots>
           <id>central</id>
           <name>Maven-Releases</name>
-          <url>https://sres.web.boeing.com/artifactory/Maven-Releases</url>
+          <url>https://sres.web.delder.com/artifactory/Maven-Releases</url>
         </pluginRepository>
         <pluginRepository>
           <snapshots />
           <id>snapshots</id>
           <name>Maven-Snapshots</name>
-          <url>https://sres.web.boeing.com/artifactory/Maven-Snapshots</url>
+          <url>https://sres.web.delder.com/artifactory/Maven-Snapshots</url>
         </pluginRepository>
       </pluginRepositories>
     </profile>

@@ -1040,18 +1040,18 @@ ul, ul ul,  ul ul ul {
 	padding: 0px 10px 0px .5em;	
 }
 ul {
-	list-style-image: url(/prime/resources/images/sml_blu_bull.gif);
+	list-style-image: url(/delder/resources/images/sml_blu_bull.gif);
 }
 
 ul ul {
 	list-style-type: none;
-	list-style-image: url(/prime/resources/images/grayarrow.gif);
+	list-style-image: url(/delder/resources/images/grayarrow.gif);
 }
 
 
 ul ul ul {	
 	list-style-type: none;
-	list-style-image: url(/prime/resources/images/ululul.gif);
+	list-style-image: url(/delder/resources/images/ululul.gif);
 }
 /*ul img, ul ul img, ul ul ul img {
 float:none;	
