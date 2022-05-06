@@ -148,7 +148,7 @@
   <aop:aspectj-autoproxy proxy-target-class="true" />
 
   <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
-    <property name="host" value="relay.boeing.com" />
+    <property name="host" value="relay.delder.com" />
     <!-- commented out because it isn't needed and seemed to be causing problems -->
   </bean>
 
