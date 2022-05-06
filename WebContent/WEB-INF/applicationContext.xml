@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:aop="http://www.springframework.org/schema/aop"
+  xmlns:context="http://www.springframework.org/schema/context"
+  xmlns:tx="http://www.springframework.org/schema/tx"
+  xmlns:p="http://www.springframework.org/schema/p"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:jee="http://www.springframework.org/schema/jee"
+  xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+  xmlns:util="http://www.springframework.org/schema/util"
+  xmlns:sec="http://www.springframework.org/schema/security"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans.xsd 
+    http://www.springframework.org/schema/tx 
+    http://www.springframework.org/schema/tx/spring-tx.xsd   
+    http://www.springframework.org/schema/aop 
+    http://www.springframework.org/schema/aop/spring-aop.xsd 
+    http://www.springframework.org/schema/context 
+    http://www.springframework.org/schema/context/spring-context.xsd
+    http://www.springframework.org/schema/data/jpa 
+    http://www.springframework.org/schema/data/jpa/spring-jpa.xsd 
+    http://www.springframework.org/schema/util 
+    http://www.springframework.org/schema/util/spring-util.xsd
+    http://www.springframework.org/schema/security 
+    http://www.springframework.org/schema/security/spring-security.xsd">
+  
+  <bean id="persistenceUnitManager"
+    class="org.springframework.orm.jpa.persistenceunit.DefaultPersistenceUnitManager">
+  </bean>
+
+  <bean id="filterMultipartResolver"
+    class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+    <property name="maxUploadSize" value="-1" />
+  </bean>
+
+  <bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
+
+<!--  
+  <bean id="primeDataSource"
+      class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+      <property name="driverClassName"
+        value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
+      <property name="url" value="${jdbc.url}" />
+      <property name="username" value="${jdbc.user}" />
+      <property name="password" value="${jdbc.password}" />
+  </bean>
+-->
+
+
+  <bean id="primeDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+      destroy-method="close">
+    <!-- Connection properties -->
+    <property name="driverClass" value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
+    <property name="jdbcUrl" value="${jdbc.url}" />
+    <property name="user" value="${jdbc.user}" />
+    <property name="password" value="${jdbc.password}" />
+    <!-- Pool properties -->
+    <property name="minPoolSize" value="5" />
+    <property name="maxPoolSize" value="20" />
+    <property name="maxStatements" value="50" />
+    <property name="idleConnectionTestPeriod" value="3000" />
+    <property name="loginTimeout" value="300" />
+    <property name="statementCacheNumDeferredCloseThreads" value="1" />
+    <!-- Recycle connections after 12 hours -->
+    <property name="maxConnectionAge" value="43200" />
+    <property name="maxIdleTime" value="3600" />
+    <property name="initialPoolSize" value="5" />
+    <property name="acquireIncrement" value="2" />
+    <property name="testConnectionOnCheckin" value="true" />
+  </bean>
+
+  <bean id="entityManagerFactory" 
+        class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+    <property name="dataSource" ref="primeDataSource" />
+    <property name="packagesToScan" value="com.delder.entities" />
+    <property name="persistenceUnitName" value="WISUSER" />
+    <property name="jpaVendorAdapter">
+      <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" />
+    </property>
+    <property name="jpaProperties">
+      <props>
+        <prop key="hibernate.hbm2ddl.auto">none</prop>
+        <prop key="hibernate.show_sql">false</prop>
+        <prop key="hibernate.dialect">org.hibernate.dialect.SQLServer2012Dialect</prop>
+      </props>
+    </property>
+  </bean>
+
+  <bean id="transactionManager" 
+        class="org.springframework.orm.jpa.JpaTransactionManager">
+    <property name="entityManagerFactory" ref="entityManagerFactory" />
+  </bean>
+  <tx:annotation-driven transaction-manager="transactionManager" />
+
+  <bean id="jdbcVariablesConfiguration" 
+        class="org.jasypt.encryption.pbe.config.EnvironmentStringPBEConfig">
+    <!-- <property name="algorithm" value="PBEWithSHA1AndDESEDE" /> -->
+    <property name="algorithm" value="PBEWITHHMACSHA256ANDAES_256" />
+    <property name="ivGeneratorClassName" value="org.jasypt.iv.RandomIvGenerator" />
+    <property name="password" value="ThisIsMe" />
+  </bean>
+
+  <!-- -->
+  <!-- The will be the encryptor used for decrypting configuration values. -->
+  <!-- -->
+  <bean id="configurationEncryptor" 
+        class="org.jasypt.encryption.pbe.StandardPBEStringEncryptor">
+    <property name="config" ref="jdbcVariablesConfiguration" />
+  </bean>
+
+  <bean id="propertyConfigurer" 
+        class="org.jasypt.spring31.properties.EncryptablePropertyPlaceholderConfigurer">
+    <constructor-arg ref="configurationEncryptor" />
+    <property name="locations">
+      <list>
+        <value>/WEB-INF/classes/jdbc.properties</value>
+      </list>
+    </property>
+  </bean>
+
+  <bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" />
+
+  <bean id="messageSource" 
+        class="org.springframework.context.support.ResourceBundleMessageSource">
+    <property name="basenames">
+      <list>
+        <value>
+          messages
+        </value>
+      </list>
+    </property>
+  </bean>
+
+  <tx:annotation-driven transaction-manager="transactionManager" />
+
+  <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean" />
+
+  <jpa:auditing auditor-aware-ref="auditorAwareBean" />
+  <jpa:repositories base-package="com.delder.repositories" />
+
+  <bean id="auditorAwareBean" class="com.delder.auditor.AuditorAwareBean" />
+
+  <context:annotation-config />
+  <context:component-scan base-package="com.delder">
+    <context:exclude-filter type="regex" expression="com.delder.controllers.*" />
+  </context:component-scan>
+
+  <aop:aspectj-autoproxy proxy-target-class="true" />
+
+  <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+    <property name="host" value="relay.boeing.com" />
+    <!-- commented out because it isn't needed and seemed to be causing problems -->
+  </bean>
+
+  <util:properties id="emailProperties" location="classpath:email.properties" />
+
+</beans>

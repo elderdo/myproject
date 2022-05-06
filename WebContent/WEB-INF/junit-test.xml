@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:util="http://www.springframework.org/schema/util" 
+	xmlns:sec="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans.xsd 
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/util 
+		http://www.springframework.org/schema/util/spring-util.xsd
+		http://www.springframework.org/schema/security 
+		http://www.springframework.org/schema/security/spring-security.xsd">
+		
+ 	<bean id="reportDataSource"
+			class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+			<property name="driverClassName"
+				value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
+			<property name="url" value="${jdbc.url}" />
+			<property name="username" value="${jdbc.user}" />
+			<property name="password" value="${jdbc.password}" />
+	</bean>
+
+  <bean id="jdbcVariablesConfiguration"
+        class="org.jasypt.encryption.pbe.config.EnvironmentStringPBEConfig">
+      <property name="algorithm" value="PBEWITHHMACSHA256ANDAES_256" />
+      <property name="password" value="ThisIsMe" />
+      <property name="ivGeneratorClassName" value ="org.jasypt.iv.RandomIvGenerator" />
+  </bean>
+
+ 	<bean id="configurationEncryptor"
+     		class="org.jasypt.encryption.pbe.StandardPBEStringEncryptor">
+   		<property name="config" ref="jdbcVariablesConfiguration" />
+ 	</bean>
+
+ 	<bean id="propertyConfigurer"
+     		class="org.jasypt.spring31.properties.EncryptablePropertyPlaceholderConfigurer">
+   		<constructor-arg ref="configurationEncryptor" />
+   		<property name="locations">
+     		<list>
+       			<value>jdbc.properties</value>
+     		</list>
+   		</property>
+ 	</bean>
+
+</beans>

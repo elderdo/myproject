@@ -1,0 +1,9 @@
+<Context docBase="${catalina.home}/webapps/prime"
+         privileged="true" 
+       >
+		<ResourceLink
+       		global="jdbc/Sandbox"                 
+       		name="jdbc/Sandbox"         
+       		type="javax.sql.DataSource"/>
+       		
+</Context> 

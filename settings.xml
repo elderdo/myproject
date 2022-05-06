@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.1.0 http://maven.apache.org/xsd/settings-1.1.0.xsd" xmlns="http://maven.apache.org/SETTINGS/1.1.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <servers>
+    <server>
+      <username>294913</username>
+      <password>AKCp5btpReGURqpCEWX3s3a7Q819i4xhTnqivd4KbrPxmTHQQZr9upZDhdfirFLVLdZQc62gA</password>
+      <id>central</id>
+    </server>
+    <server>
+      <username>294913</username>
+      <password>AKCp5btpReGURqpCEWX3s3a7Q819i4xhTnqivd4KbrPxmTHQQZr9upZDhdfirFLVLdZQc62gA</password>
+      <id>snapshots</id>
+    </server>
+  </servers>
+  <profiles>
+    <profile>
+      <id>sres</id>
+      <repositories>
+        <repository>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+          <id>central</id>
+          <name>Maven-Releases</name>
+          <url>https://sres.web.boeing.com/artifactory/Maven-Releases</url>
+        </repository>
+        <repository>
+          <snapshots />
+          <id>snapshots</id>
+          <name>Maven-Snapshots</name>
+          <url>https://sres.web.boeing.com/artifactory/Maven-Snapshots</url>
+        </repository>
+      </repositories>
+      <pluginRepositories>
+        <pluginRepository>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+          <id>central</id>
+          <name>Maven-Releases</name>
+          <url>https://sres.web.boeing.com/artifactory/Maven-Releases</url>
+        </pluginRepository>
+        <pluginRepository>
+          <snapshots />
+          <id>snapshots</id>
+          <name>Maven-Snapshots</name>
+          <url>https://sres.web.boeing.com/artifactory/Maven-Snapshots</url>
+        </pluginRepository>
+      </pluginRepositories>
+    </profile>
+  </profiles>
+  <activeProfiles>
+    <activeProfile>sres</activeProfile>
+  </activeProfiles>
+</settings>
+

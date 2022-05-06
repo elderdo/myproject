@@ -1,0 +1,251 @@
+.ra-menu,
+.ra-menu .ra-btn .fa,
+.ra-menu .ra-btn.trigger .line {
+  
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.ra-menu {
+  width: 7.5em;
+  height: 10em;
+  display:block;
+  margin:115px;
+  text-align:center;
+}
+
+.ra-menu .ra-btn {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: none;
+  border: none;
+  opacity: 0;
+  z-index: -10;
+  cursor: pointer;
+  -webkit-transition: opacity .7s, z-index 0.3s, background 500ms, -webkit-transform .7s;
+  transition: opacity .7s, z-index 0.3s, background 500ms, transform .7s;
+  -webkit-transform: translateX(0);
+  -ms-transform: translateX(0);
+  transform: translateX(0);
+}
+
+.ra-menu .ra-btn:hover{
+    background: none;
+    -webkit-transition: background 500ms;
+    -moz-transition: background 500ms;
+    -o-transition: background 500ms;
+    -ms-transition: background 500ms;
+    transition: background 500ms;
+}
+
+.ra-menu .ra-btn .fa {
+  font-size: 3em;
+  -webkit-transition: color 0.3s;
+  transition: color 0.3s;
+}
+
+.ra-menu .ra-btn:hover .fa { color: rgba(255, 255, 255, 0.7); }
+
+.ra-menu .ra-btn.trigger {
+  opacity: 1;
+  z-index: 100;
+  cursor: pointer;
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+}
+
+.ra-menu .ra-btn.trigger:hover {
+  -webkit-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.2);
+}
+
+
+
+.ra-menu .ra-btn.trigger .line {
+  width: 60%;
+  height: 6px;
+  background: #000;
+  border-radius: 6px;
+  -webkit-transition: background-color 0.3s, height 0.3s, top 0.3s;
+  transition: background-color 0.3s, height 0.3s, top 0.3s;
+}
+
+.ra-menu .ra-btn.trigger .line:before,
+.ra-menu .ra-btn.trigger .line:after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background: #000;
+  border-radius: 6px;
+  -webkit-transition: background-color 0.3s, -webkit-transform 0.3s;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.ra-menu .ra-btn.trigger .line:before {
+  top: -12px;
+  -webkit-transform-origin: 15% 100%;
+  -ms-transform-origin: 15% 100%;
+  transform-origin: 15% 100%;
+}
+
+.ra-menu .ra-btn.trigger .line:after {
+  top: 12px;
+  -webkit-transform-origin: 25% 30%;
+  -ms-transform-origin: 25% 30%;
+  transform-origin: 25% 30%;
+}
+
+.ra-menu .rotater {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+}
+
+.ra-menu.active .ra-btn-icon {
+  opacity: 1;
+  z-index: 150;
+  text-align: center;
+}
+
+.ra-menu.active .trigger .line {
+  height: 0px;
+  top: 45%;
+}
+
+.ra-menu.active .trigger .line:before {
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  width: 120%;
+}
+
+.ra-menu.active .trigger .line:after {
+  -webkit-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  width: 120%;
+}
+
+.rotater:nth-child(1) {
+  -webkit-transform: rotate(-22.5deg);
+  -ms-transform: rotate(-22.5deg);
+  transform: rotate(-22.5deg);
+}
+
+.ra-menu.active .rotater:nth-child(1) .ra-btn-icon {
+  -webkit-transform: translateX(-10em) rotate(22.5deg);
+  -ms-transform: translateX(-10em) rotate(22.5deg);
+  transform: translateX(-10em) rotate(22.5deg);
+}
+
+
+.rotater:nth-child(2) {
+  -webkit-transform: rotate(22.5deg);
+  -ms-transform: rotate(22.5deg);
+  transform: rotate(22.5deg);
+}
+
+.ra-menu.active .rotater:nth-child(2) .ra-btn-icon {
+  -webkit-transform: translateX(-10em) rotate(-22.5deg);
+  -ms-transform: translateX(-10em) rotate(-22.5deg);
+  transform: translateX(-10em) rotate(-22.5deg);
+}
+
+.rotater:nth-child(3) {
+  -webkit-transform: rotate(75deg);
+  -ms-transform: rotate(75deg);
+  transform: rotate(75deg);
+}
+
+.ra-menu.active .rotater:nth-child(3) .ra-btn-icon {
+  -webkit-transform: translateX(-10em) rotate(-75deg);
+  -ms-transform: translateX(-10em) rotate(-75deg);
+  transform: translateX(-10em) rotate(-75deg);
+}
+
+.rotater:nth-child(4) {
+  -webkit-transform: rotate(135deg);
+  -ms-transform: rotate(135deg);
+  transform: rotate(135deg);
+}
+
+.ra-menu.active .rotater:nth-child(4) .ra-btn-icon {
+  -webkit-transform: translateX(-12em) rotate(-135deg);
+  -ms-transform: translateX(-12em) rotate(-135deg);
+  transform: translateX(-12em) rotate(-135deg);
+}
+
+.rotater:nth-child(5) {
+  -webkit-transform: rotate(172.5deg);
+  -ms-transform: rotate(172.5deg);
+  transform: rotate(172.5deg);
+}
+
+.ra-menu.active .rotater:nth-child(5) .ra-btn-icon {
+  -webkit-transform: translateX(-16em) rotate(-172.5deg);
+  -ms-transform: translateX(-16em) rotate(-172.5deg);
+  transform: translateX(-16em) rotate(-172.5deg);
+  z-index:10000;
+}
+
+.rotater:nth-child(6) {
+  -webkit-transform: rotate(255deg);
+  -ms-transform: rotate(255deg);
+  transform: rotate(255deg);
+}
+
+.ra-menu.active .rotater:nth-child(6) .ra-btn-icon {
+  -webkit-transform: translateX(-11em) rotate(-255deg);
+  -ms-transform: translateX(-11em) rotate(-255deg);
+  transform: translateX(-11em) rotate(-255deg);
+}
+
+.rotater:nth-child(7) {
+  -webkit-transform: rotate(247.5deg);
+  -ms-transform: rotate(247.5deg);
+  transform: rotate(247.5deg);
+}
+
+.ra-menu.active .rotater:nth-child(7) .ra-btn-icon {
+  -webkit-transform: translateX(-10em) rotate(-247.5deg);
+  -ms-transform: translateX(-10em) rotate(-247.5deg);
+  transform: translateX(-10em) rotate(-247.5deg);
+}
+
+.rotater:nth-child(8) {
+  -webkit-transform: rotate(292.5deg);
+  -ms-transform: rotate(292.5deg);
+  transform: rotate(292.5deg);
+}
+
+.ra-menu.active .rotater:nth-child(8) .ra-btn-icon {
+  -webkit-transform: translateX(-10em) rotate(-292.5deg);
+  -ms-transform: translateX(-10em) rotate(-292.5deg);
+  transform: translateX(-10em) rotate(-292.5deg);
+}
+
+.rotater:nth-child(9) {
+  -webkit-transform: rotate(337.5deg);
+  -ms-transform: rotate(337.5deg);
+  transform: rotate(337.5deg);
+}
+
+.ra-menu.active .rotater:nth-child(9) .ra-btn-icon {
+  -webkit-transform: translateX(-10em) rotate(-337.5deg);
+  -ms-transform: translateX(-10em) rotate(-337.5deg);
+  transform: translateX(-10em) rotate(-337.5deg);
+}

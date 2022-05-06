@@ -1,0 +1,311 @@
+/* Added to design the help layer */
+.help {
+  position: absolute;
+  padding: 10px;
+  font-size: 15px;
+  font-weight: bold;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+  border-color:transparent;
+/*  background-color:rgb(230,127,30) ; */
+  background-color:rgb(252,223,194);
+  color: black;
+  text-align: left;
+  z-index:1000;
+}
+
+.help.top:after, .help.topLeft:after, .help.topRight:after, .help.topCenter:after, 
+.help.bottom:after, .help.bottomLeft:after, .help.bottomRight:after, .help.bottomCenter:after, 
+.help.left:after, 
+.help.right:after {
+  content: "";
+  display: block; /* reduce the damage in FF3.0 */
+  position: absolute;
+  width: 0px;
+  height:0px;
+}
+
+/* creates triangle */
+.help.top, .help.topLeft, .help.topRight, .help.topCenter {
+  margin-top: 12px;
+}
+
+.help.top:after, .help.topLeft:after {
+  top: -15px;
+  left: 20px;
+  border-width: 0px 15px 15px 15px;
+  border-style: solid;
+  border-color: rgb(252,223,194) transparent;
+  z-index:1000;
+}
+
+.help.topRight:after {
+  top: -15px;
+  right: 20px;
+  border-width: 0px 15px 15px 15px;
+  border-style: solid;
+  border-color: rgb(252,223,194) transparent;
+  z-index:1000;
+}
+
+.help.topCenter:after {
+  top: -15px;
+  left: 50%;
+  margin-left: -15px;
+  border-width: 0px 15px 15px 15px;
+  border-style: solid;
+  border-color: rgb(252,223,194) transparent;
+  z-index:1000;
+}
+
+.help.bottom:after, .help.bottomLeft:after {
+  bottom: -15px;
+  left: 20px;
+  border-width: 15px 15px 0px 15px;
+  border-style: solid;
+  border-color: rgb(252,223,194) transparent;
+  z-index:1000;
+}
+
+.help.bottomRight:after {
+  bottom: -15px;
+  right: 20px;
+  border-width: 15px 15px 0px 15px;
+  border-style: solid;
+  border-color: rgb(252,223,194) transparent;
+  z-index:1000;
+}
+
+.help.bottomCenter:after {
+  bottom: -15px;
+  left: 50%;
+  margin-left: -15px;
+  border-width: 15px 15px 0px 15px;
+  border-style: solid;
+  border-color: rgb(252,223,194) transparent;
+  z-index:1000;
+}
+
+.help.left:after {
+  top: 5px;
+	left: -10px;
+  border-width: 15px 12px 15px 0px;
+  border-style: solid;
+  border-color: transparent rgb(252,223,194) ;
+  z-index:1000;
+}
+
+.help.right:after {
+  top: 5px;
+	right: -10px;
+  border-width: 15px 0px 15px 12px;
+  border-style: solid;
+  border-color: transparent rgb(252,223,194) ;
+  z-index:1000;
+}
+
+.help.process {
+  border-width: 4px 4px 4px 4px;
+  border-style: solid;
+/*  border-color: rgb(60,190,30); */
+  border-color: black;
+  background-color:rgb(220,250,195);
+  z-index:1000;
+}
+
+.help.detail {
+  border-width: 4px 4px 4px 4px;
+  border-style: solid;
+  border-color: rgb(60,130,200);
+  background-color:rgb(200,230,250);
+  z-index:1000;
+}
+
+.help.top.detail:after, .help.topLeft.detail:after, .help.topCenter.detail:after, .help.topRight.detail:after {
+	top: -19px;
+}
+
+.help.bottom.detail:after, .help.bottomLeft.detail:after, .help.bottomCenter.detail:after, .help.bottomRight.detail:after {
+	bottom: -19px;
+}
+
+.help.left.detail:after {
+	border-color: transparent rgb(60,130,200) ;
+	left: -16px;
+}
+
+.help.right.detail:after {
+	left: -16px;
+}
+
+.help.detail:after {
+  border-color: rgb(60,130,200) transparent;
+}
+
+.helpBorderTop {}
+
+.helpBorderBottom {}
+
+.helpBorderLeft {}
+
+.helpBorderRight {}
+
+.qtip {
+	max-width: 300px;
+  padding: 5px;
+  font-size: 15px;
+  font-weight: bold;
+  line-height: 1.3;
+  border-color:transparent;
+  background-color:rgb(252,223,194);
+  color: black;
+}
+
+.qtip-rounded {
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+}
+
+.qtip-admin-rounded {
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+	background-color:rgb(255,153,153);
+  font-size: 12px;
+}
+
+.qtip-detail-rounded {
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  border-width: 4px 4px 4px 4px;
+  border-style: solid;
+  border-color: rgb(60,130,200);
+  background-color: rgb(200, 230, 250);
+}
+
+
+/* Added to design the admin help layer */
+.adminHelp {
+  position: absolute;
+  padding: 5px;
+  font-size: 12px;
+  font-weight: bold;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  border-color:transparent;
+/*  background-color:rgb(230,127,30) ; */
+  background-color:rgb(255,153,153);
+  color: black;
+  text-align: left;
+  z-index:1000;
+}
+
+.adminHelp.top:after, .adminHelp.topLeft:after, .adminHelp.topRight:after, .adminHelp.topCenter:after, 
+.adminHelp.bottom:after, .adminHelp.bottomLeft:after, .adminHelp.bottomRight:after, .adminHelp.bottomCenter:after, 
+.adminHelp.left:after, 
+.adminHelp.right:after {
+  content: "";
+  display: block; /* reduce the damage in FF3.0 */
+  position: absolute;
+  width: 0px;
+  height:0px;
+}
+
+/* creates triangle */
+.adminHelp.top, .adminHelp.topLeft, .adminHelp.topRight, .adminHelp.topCenter {
+  margin-top: 5px;
+}
+
+.adminHelp.top:after, .adminHelp.topLeft:after {
+  top: -10px;
+  left: 15px;
+  border-width: 0px 10px 10px 10px;
+  border-style: solid;
+  border-color: rgb(255,153,153) transparent;
+  z-index:1000;
+}
+
+.adminHelp.topRight:after {
+  top: -10px;
+  right: 15px;
+  border-width: 0px 10px 10px 10px;
+  border-style: solid;
+  border-color: rgb(255,153,153) transparent;
+  z-index:1000;
+}
+
+.adminHelp.topCenter:after {
+  top: -10px;
+  left: 50%;
+  margin-left: -10px;
+  border-width: 0px 10px 10px 10px;
+  border-style: solid;
+  border-color: rgb(255,153,153) transparent;
+  z-index:1000;
+}
+
+.adminHelp.bottom:after, .adminHelp.bottomLeft:after {
+  bottom: -10px;
+  left: 15px;
+  border-width: 10px 10px 0px 10px;
+  border-style: solid;
+  border-color: rgb(255,153,153) transparent;
+  z-index:1000;
+}
+
+.adminHelp.bottomRight:after {
+  bottom: -10px;
+  right: 15px;
+  border-width: 10px 10px 0px 10px;
+  border-style: solid;
+  border-color: rgb(255,153,153) transparent;
+  z-index:1000;
+}
+
+.adminHelp.bottomCenter:after {
+  bottom: -10px;
+  left: 50%;
+  margin-left: -10px;
+  border-width: 10px 10px 0px 10px;
+  border-style: solid;
+  border-color: rgb(255,153,153) transparent;
+  z-index:1000;
+}
+
+.adminHelp.left:after {
+  top: 5px;
+  left: -10px;
+  border-width: 10px 10px 10px 0px;
+  border-style: solid;
+  border-color: transparent rgb(255,153,153) ;
+  z-index:1000;
+}
+
+.adminHelp.right:after {
+  top: 5px;
+  right: -10px;
+  border-width: 10px 0px 10px 10px;
+  border-style: solid;
+  border-color: transparent rgb(255,153,153) ;
+  z-index:1000;
+}
+
+.adminHelp.process {
+  border-width: 4px 4px 4px 4px;
+  border-style: solid;
+  border-color: black;
+  background-color:rgb(255,153,153);
+  z-index:1000;
+}
+
+.adminHelpBorderTop {}
+
+.adminHelpBorderBottom {}
+
+.adminHelpBorderLeft {}
+
+.adminHelpBorderRight {}
