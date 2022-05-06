@@ -468,20 +468,20 @@ table.partsDetailTable {
 /*	text-align: left; */
 }
 
-.primeButton {
+.delerButton {
 	font-size: 12px;
 }
 
-.primeSelect {
+.delderSelect {
 	border: 1px solid #837B88;
 	overflow: hidden;
 }
 
-.prime-select2 select {
+.delder-select2 select {
 	border: 1px solid #837B88;
 }
 
-.prime-select2 option {
+.delder-select2 option {
 	margin-right: 10px;
 }
 
@@ -511,24 +511,24 @@ table.partsDetailTable {
 	background-color: Silver;
 }
 
-.primeNav {
+.delderNav {
 	width: 100%;
 	margin: 0px 0px 8px 0px;
 }
 
-.primeTableItemTitle {
+.delderTableItemTitle {
 	font-weight: bold;
 	white-space: nowrap;
 }
 
-.primeTableBottomBorder {
+.de;derTableBottomBorder {
 	border-style: solid;
 	border-width: 1px;
 	border-spacing: 10px;
 	BORDER-COLLAPSE: separate;
 }
 
-.primeTableBorder70 {
+.delderTableBorder70 {
 	width: 70%;
 	border-style: solid;
 	border-width: 1px;
@@ -537,7 +537,7 @@ table.partsDetailTable {
 	BORDER-COLLAPSE: separate;
 }
 
-.primeTableBorder70 td {
+.delderTableBorder70 td {
 	white-space: nowrap;
 	padding: 5px 5px 5px 5px;
 }
